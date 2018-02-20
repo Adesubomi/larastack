@@ -1,0 +1,26 @@
+{
+    "name": "adesubomi/larastack",
+    "description": "A Simple and Efficient Wrapper Around Paystack API for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oniya Daniel",
+            "email": "daniel.prince84@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Adesubomi\\Larastack\\LarastackServiceProvider"
+            ],
+            "aliases": {
+                "Larastack": "Adesubomi\\Larastack\\Larastack"
+            }
+        }
+    }
+}
