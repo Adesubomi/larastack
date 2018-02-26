@@ -9,7 +9,7 @@
             "email": "daniel.prince84@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
