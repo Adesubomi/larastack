@@ -17,15 +17,5 @@
         "psr-4": {
             "Adesubomi\\Larastack\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Adesubomi\\Larastack\\Provider\\LarastackServiceProvider"
-            ],
-            "aliases": {
-                "Larastack": "Adesubomi\\Larastack\\Facade\\Larastack"
-            }
-        }
     }
 }
