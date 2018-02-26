@@ -16,10 +16,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Adesubomi\\Larastack\\LarastackServiceProvider"
+                "Adesubomi\\Larastack\\Provider\\LarastackServiceProvider"
             ],
             "aliases": {
-                "Larastack": "Adesubomi\\Larastack\\Larastack"
+                "Larastack": "Adesubomi\\Larastack\\Facade\\Larastack"
             }
         }
     }
