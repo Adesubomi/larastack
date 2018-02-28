@@ -13,14 +13,9 @@
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Adesubomi\\Larastack\\LarastackServiceProvider"
-            ],
-            "aliases": {
-                "Larastack": "Adesubomi\\Larastack\\Larastack"
-            }
+    "autoload": {
+        "psr-4": {
+            "Adesubomi\\Larastack\\": "src/"
         }
     }
 }
