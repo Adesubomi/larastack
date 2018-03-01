@@ -14,12 +14,74 @@
         h1, h2 { font-weight: 100; }
         h3 { font-weight: 300; }
         h4, h5, h6 { font-weight: 700; }
+
+
+
+        #guideSideMenu {
+            min-width: 190px;
+            font-size: 14px;
+            padding: 25px;
+            text-align: right;
+        }
+
+        #guideSideMenu .nav-link {
+            color: #707070;
+            padding: 8px 10px 6px 18px;
+        }
+
+        #guideSideMenu .nav-link.active {
+            color: #4a5171;
+            font-weight: 700;
+        }
+
+        #guideSideMenu .nav-item::after {
+            content: ' ';
+            width: 10px;
+            height: 10px;
+            border: 2px solid #abdde5;
+            position: absolute;
+            margin-top: -23px;
+            right: 10px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        #apiSideMenu {
+            min-width: 190px;
+            font-size: 13px;
+            padding: 25px;
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        #apiSideMenu .nav-link {
+            color: #808080;
+        }
+
+        .dropdown-menu {
+            border-radius: 0;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        div.dropdown-item {
+            padding: 10px 15px;
+            background-color: #f0f6ff;
+        }
+
+        div.dropdown-item:hover {
+            background-color: #f0f6ff;
+        }
+
+        .dropdown-menu .dropdown-divider {
+            margin: 0
+        }
     </style>
 </head>
 <body>
 
 
-    <div class="container-fluid">
+    <!--<div class="container-fluid">
 
         <div class="container mt-5">
             <h1>Welcome to Larastack</h1>
@@ -37,6 +99,102 @@
                     <h2>Contributions are welcome and will be fully credited.</h2>
                     <h2>We accept contributions via Pull Requests on
                         <a href="https://github.com/Adesubomi/larastack">Github</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+
+    <div class="container-fluid">
+
+        <nav class="container navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Larastack</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Paystack API v1.0
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">
+                                Paystack API v1.0
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-auto mt-5">
+                <ul class="nav flex-column border-right" id="guideSideMenu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Requirements
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Installation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Usage
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Contributing
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav flex-column border-right" id="apiSideMenu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Customers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Transfers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Payment Pages
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <div class="container mt-4">
+                    <h1>Welcome to Larastack</h1>
+
+                    <div class="mt-4">
+                        <h4>Please, Note that as of present, larastack is still under active development.</h4>
+
+                        <div class="alert alert-danger" role="alert">
+                            Please, DON'T use Larastack for any active development.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h2>Contributions are welcome and will be fully credited.</h2>
+                            <h2>We accept contributions via Pull Requests on
+                                <a href="https://github.com/Adesubomi/larastack">Github</a></h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
