@@ -36,4 +36,8 @@ class PaystackApi
             'Authorization' => 'Bearer '. config('larastack.secret_key'),
         ];
     }
+
+    public function url() {
+        return new PaystackUrl();
+    }
 }
