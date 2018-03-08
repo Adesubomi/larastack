@@ -37,7 +37,7 @@ trait PaystackMiscellaneous
     {
 
         try {
-            $response = $this->client->request('GET', $this->url()->resolveBvn($bvn), [
+            $response = $this->client->request('GET', $this->url->resolveBvn($bvn), [
                 'headers' => $this->authorization
             ]);
 
@@ -53,7 +53,7 @@ trait PaystackMiscellaneous
     {
         try {
 
-            $response = $this->client->request('GET', $this->url()->listBanks(), [
+            $response = $this->client->request('GET', $this->url->listBanks(), [
                 'headers' => $this->authorization
             ]);
 

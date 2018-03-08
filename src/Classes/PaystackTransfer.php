@@ -16,7 +16,24 @@ trait PaystackTransfer
     {
         try {
 
-            $response = $this->client->request('GET', $this->url()->listBanks(), [
+            $response = $this->client->request('GET', $this->url->checkBalance(), [
+                'headers' => $this->authorization
+            ]);
+
+            return $response->getBody();
+
+        }
+        catch (\Exception $exception) {
+
+            return $exception->getMessage();
+        }
+    }
+
+    public function listTransfers()
+    {
+        try {
+
+            $response = $this->client->request('GET', $this->url->listTransfers(), [
                 'headers' => $this->authorization
             ]);
 

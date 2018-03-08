@@ -12,4 +12,20 @@ namespace Adesubomi\Larastack\Classes;
 trait PaystackCustomers
 {
 
+    public function listCustomers()
+    {
+        try {
+
+            $response = $this->client->request('GET', $this->url->listCustomers(), [
+                'headers' => $this->authorization
+            ]);
+
+            return $response->getBody();
+
+        }
+        catch (\Exception $exception) {
+
+            return $exception->getMessage();
+        }
+    }
 }
