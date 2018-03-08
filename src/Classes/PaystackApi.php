@@ -23,6 +23,8 @@ class PaystackUrls
     public function checkBalance() { return "https://api.paystack.co/balance"; }
 
     public function listTransfers() { return "https://api.paystack.co/transfer"; }
+
+    public function fetchTransfer($code) { return "https://api.paystack.co/transfer/". $code; }
 }
 
 class PaystackApi

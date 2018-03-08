@@ -45,4 +45,21 @@ trait PaystackTransfer
             return $exception->getMessage();
         }
     }
+
+    public function fetchTransfer(string $transfer_code)
+    {
+        try {
+
+            $response = $this->client->request('GET', $this->url->fetchTransfer($transfer_code), [
+                'headers' => $this->authorization
+            ]);
+
+            return $response->getBody();
+
+        }
+        catch (\Exception $exception) {
+
+            return $exception->getMessage();
+        }
+    }
 }
