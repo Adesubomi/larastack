@@ -25,6 +25,8 @@ class PaystackUrls
     public function listTransfers() { return "https://api.paystack.co/transfer"; }
 
     public function fetchTransfer($code) { return "https://api.paystack.co/transfer/". $code; }
+
+    public function verifyTransaction($ref) { return "https://api.paystack.co/transaction/verify/". $ref; }
 }
 
 class PaystackApi
