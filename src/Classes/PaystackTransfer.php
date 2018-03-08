@@ -12,5 +12,20 @@ namespace Adesubomi\Larastack\Classes;
 trait PaystackTransfer
 {
 
+    public function checkBalance()
+    {
+        try {
 
+            $response = $this->client->request('GET', $this->url()->listBanks(), [
+                'headers' => $this->authorization
+            ]);
+
+            return $response->getBody();
+
+        }
+        catch (\Exception $exception) {
+
+            return $exception->getMessage();
+        }
+    }
 }
