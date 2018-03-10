@@ -16,7 +16,7 @@ trait PaystackCustomers
     {
         try {
 
-            $response = $this->client->request('GET', $this->url->listCustomers(), [
+            $response = $this->client->request('GET', "https://api.paystack.co/customer", [
                 'headers' => $this->authorization
             ]);
 

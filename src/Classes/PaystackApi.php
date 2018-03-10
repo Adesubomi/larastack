@@ -11,24 +11,6 @@ namespace Adesubomi\Larastack\Classes;
 
 use GuzzleHttp\Client;
 
-class PaystackUrls
-{
-
-    public function listCustomers() { return "https://api.paystack.co/customer"; }
-
-    public function listBanks() { return "https://api.paystack.co/bank"; }
-
-    public function resolveBvn(string $bvn) { return "https://api.paystack.co/bank/resolve_bvn/". $bvn; }
-
-    public function checkBalance() { return "https://api.paystack.co/balance"; }
-
-    public function listTransfers() { return "https://api.paystack.co/transfer"; }
-
-    public function fetchTransfer($code) { return "https://api.paystack.co/transfer/". $code; }
-
-    public function verifyTransaction($ref) { return "https://api.paystack.co/transaction/verify/". $ref; }
-}
-
 class PaystackApi
 {
 
@@ -54,7 +36,5 @@ class PaystackApi
         $this->authorization = [
             'Authorization' => 'Bearer '. config('larastack.secret_key'),
         ];
-
-        $this->url = new PaystackUrls();
     }
 }

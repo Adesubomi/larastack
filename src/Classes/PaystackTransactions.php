@@ -12,12 +12,11 @@ namespace Adesubomi\Larastack\Classes;
 trait PaystackTransactions
 {
 
-    public function verifyTransaction(string $refCode)
+    public function verifyTransaction(string $reference)
     {
         try {
 
-            $transactionRef = substr($refCode, 1);
-            $response = $this->client->request('GET', $this->url->verifyTransaction($refCode), [
+            $response = $this->client->request('GET', "https://api.paystack.co/transaction/verify/". $reference, [
                 'headers' => $this->authorization
             ]);
 

@@ -16,7 +16,7 @@ trait PaystackTransfer
     {
         try {
 
-            $response = $this->client->request('GET', $this->url->checkBalance(), [
+            $response = $this->client->request('GET', "https://api.paystack.co/balance", [
                 'headers' => $this->authorization
             ]);
 
@@ -33,7 +33,7 @@ trait PaystackTransfer
     {
         try {
 
-            $response = $this->client->request('GET', $this->url->listTransfers(), [
+            $response = $this->client->request('GET', "https://api.paystack.co/transfer", [
                 'headers' => $this->authorization
             ]);
 
@@ -50,7 +50,7 @@ trait PaystackTransfer
     {
         try {
 
-            $response = $this->client->request('GET', $this->url->fetchTransfer($transfer_code), [
+            $response = $this->client->request('GET', "https://api.paystack.co/transfer/". $transfer_code, [
                 'headers' => $this->authorization
             ]);
 
