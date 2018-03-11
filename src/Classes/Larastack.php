@@ -11,7 +11,7 @@ namespace Adesubomi\Larastack\Classes;
 
 use GuzzleHttp\Client;
 
-class PaystackApi
+class Larastack
 {
 
     use PaystackCustomers;

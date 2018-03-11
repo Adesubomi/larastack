@@ -11,7 +11,7 @@ namespace Adesubomi\Larastack\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
-class Larastack extends Facade
+class LarastackFacade extends Facade
 {
 
     protected static function getFacadeAccessor()

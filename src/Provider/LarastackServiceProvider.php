@@ -8,7 +8,7 @@
 
 namespace Adesubomi\Larastack\Provider;
 
-use Adesubomi\Larastack\Classes\PaystackApi;
+use Adesubomi\Larastack\Classes\Larastack;
 use Illuminate\Support\ServiceProvider;
 
 class LarastackServiceProvider extends ServiceProvider
@@ -32,6 +32,6 @@ class LarastackServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('larastack', PaystackApi::class);
+        $this->app->bind('larastack', Larastack::class);
     }
 }
