@@ -29,6 +29,15 @@ trait PaystackTransfer
         }
     }
 
+    /**
+     * Alias for checkBalance()
+     * @return string
+     */
+    public function getBalance()
+    {
+        return $this->checkBalance();
+    }
+
     public function listTransfers()
     {
         try {
