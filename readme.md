@@ -16,15 +16,13 @@ explanatory naming. The naming comes as you think it.
 `$larastack->checkBalance();`
 
 <strong>Verify or resolve account number</strong><br />
-`$larastack->resolveAccountNumber();`
+`$larastack->resolveAccountNumber(string $accountNumber, string $bankCode);`
 
 <strong>Verify or resolve BVN</strong><br />
-`$larastack->resolveBvn();`
+`$larastack->resolveBvn(string $bvn);`
 
 <strong>Verify a transaction</strong><br />
 `$larastack->verifyTransaction(string $reference);`
-
-
 
 ## TODOs
 - Install Larastack using composer, (i.e. put Larastack on Packagist)
