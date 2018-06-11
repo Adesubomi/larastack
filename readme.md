@@ -5,7 +5,7 @@ A Simple and Efficient Wrapper Around [Paystack](https://paystack.com) API for L
 - guzzlehttp/guzzle: ^6.3
 
 ## Installation
-```composer install adesubomi/larastack```
+```composer require adesubomi/larastack```
 
 ## Usage
 Unlike what you may be used to, Larastack simplifies the Paystack Api
