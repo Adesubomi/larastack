@@ -20,5 +20,10 @@
         "psr-4": {
             "Adesubomi\\Larastack\\": "src/"
         }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "php -r \"copy(__DIR__.'/config/larastack.php', '../../../config/larastack.php');\""
+        ]
     }
 }
