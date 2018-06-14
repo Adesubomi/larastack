@@ -21,9 +21,14 @@
             "Adesubomi\\Larastack\\": "src/"
         }
     },
-    "scripts": {
-        "post-autoload-dump": [
-            "php -r \"copy(__DIR__.'/config/larastack.php', '../../../config/larastack.php');\""
-        ]
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Adesubomi\\Larastack\\Provider\\LarastackServiceProvider"
+            ],
+            "aliases": {
+                "Larastack": "Adesubomi\\Larastack\\Facade\\LarastackFacade"
+            }
+        }
     }
 }

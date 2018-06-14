@@ -22,7 +22,7 @@ class LarastackServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../../config/larastack.php' => config_path('larastack.php')
-        ]);
+        ], 'larastack');
     }
 
     /**
