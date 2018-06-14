@@ -9,6 +9,8 @@
 namespace Adesubomi\Larastack\Classes;
 
 
+use Adesubomi\Larastack\Exception\LarastackTransportException;
+
 trait PaystackTransfer
 {
 
@@ -20,7 +22,10 @@ trait PaystackTransfer
                 'headers' => $this->authorization
             ]);
 
-            return $response->getBody();
+            $responseBody = $response->getBody();
+
+            $this->testResponseBody($responseBody);
+                return json_decode($responseBody, true)['data'];
 
         }
         catch (\Exception $exception) {
@@ -38,6 +43,11 @@ trait PaystackTransfer
         return $this->checkBalance();
     }
 
+    /**
+     * Gets a list of transfers made from this account
+     * @return mixed
+     * @throws LarastackTransportException
+     */
     public function listTransfers()
     {
         try {
@@ -46,15 +56,22 @@ trait PaystackTransfer
                 'headers' => $this->authorization
             ]);
 
-            return $response->getBody();
-
+            $responseBody = $response->getBody();
+            $this->testResponseBody($responseBody);
+                return json_decode($responseBody, true)['data'];
         }
         catch (\Exception $exception) {
 
-            return $exception->getMessage();
+            throw (new LarastackTransportException($exception->getMessage()));
         }
     }
 
+    /**
+     * Fetches and returns a particular transfer using transfer_code
+     * @param string $transfer_code
+     * @return mixed
+     * @throws LarastackTransportException
+     */
     public function fetchTransfer(string $transfer_code)
     {
         try {
@@ -63,12 +80,14 @@ trait PaystackTransfer
                 'headers' => $this->authorization
             ]);
 
-            return $response->getBody();
+            $responseBody = $response->getBody();
+            $this->testResponseBody($responseBody);
+                return json_decode($responseBody, true)['data'];
 
         }
         catch (\Exception $exception) {
 
-            return $exception->getMessage();
+            throw (new LarastackTransportException($exception->getMessage()));
         }
     }
 }

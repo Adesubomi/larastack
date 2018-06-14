@@ -9,6 +9,7 @@
 namespace Adesubomi\Larastack\Classes;
 
 
+use Adesubomi\Larastack\Exception\LarastackPaystackException;
 use GuzzleHttp\Client;
 
 class Larastack
@@ -36,5 +37,29 @@ class Larastack
         $this->authorization = [
             'Authorization' => 'Bearer '. config('larastack.secret_key'),
         ];
+    }
+
+    /**
+     * Test to see if Paystack has not returned any errors
+     * @param $body
+     * @return
+     * @throws LarastackPaystackException
+     */
+    private function testResponseBody($body)
+    {
+
+        if ( empty($body) ) {
+
+             throw (new LarastackPaystackException());
+        }
+
+        $bodyArray = json_decode($body, true);
+
+        if ( empty($bodyArray['status']) || !$bodyArray['status'] || empty($bodyArray['data'])) {
+
+             throw (new LarastackPaystackException());
+        }
+
+        return $bodyArray['data'];
     }
 }

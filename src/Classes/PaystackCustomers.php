@@ -9,9 +9,17 @@
 namespace Adesubomi\Larastack\Classes;
 
 
+use Adesubomi\Larastack\Exception\LarastackException;
+use Adesubomi\Larastack\Exception\LarastackTransportException;
+
 trait PaystackCustomers
 {
 
+    /**
+     * Lists your paystack customers
+     * @return mixed
+     * @throws LarastackException
+     */
     public function listCustomers()
     {
         try {
@@ -20,12 +28,15 @@ trait PaystackCustomers
                 'headers' => $this->authorization
             ]);
 
-            return $response->getBody();
+            $responseBody = $response->getBody();
+
+            $this->testResponseBody($responseBody);
+                return json_decode($responseBody, true)['data'];
 
         }
         catch (\Exception $exception) {
 
-            return $exception->getMessage();
+            throw (new LarastackTransportException($exception->getMessage()));
         }
     }
 }
