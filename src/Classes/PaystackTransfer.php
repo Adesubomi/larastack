@@ -14,7 +14,7 @@ use Adesubomi\Larastack\Exception\LarastackTransportException;
 trait PaystackTransfer
 {
 
-    public function getBalance()
+    public function checkBalance()
     {
         try {
 
@@ -32,6 +32,14 @@ trait PaystackTransfer
 
             throw (new LarastackTransportException($exception->getMessage()));
         }
+    }
+
+    /**
+     * Alias of checkBalance
+     */
+    public function getBalance()
+    {
+        return $this->checkBalance();
     }
 
     /**
