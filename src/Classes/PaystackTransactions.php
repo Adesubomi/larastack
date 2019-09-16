@@ -30,10 +30,10 @@ trait PaystackTransactions
                 'headers' => $this->authorization
             ]);
 
-            $responseBody = $response->getBody();
+            $responseBody = json_decode($response->getBody(), true);
 
             $this->testResponseBody($responseBody);
-                return json_decode($responseBody, true)['data'];
+            return $responseBody['data'];
 
         }
         catch (\Exception $exception) {
@@ -71,10 +71,10 @@ trait PaystackTransactions
                 'headers' => $this->authorization
             ]);
 
-            $responseBody = $response->getBody();
+            $responseBody = json_decode($response->getBody(), true);
 
             $this->testResponseBody($responseBody);
-                return json_decode($responseBody, true)['data'];
+            return $responseBody['data'];
 
         }
         catch (\Exception $exception) {

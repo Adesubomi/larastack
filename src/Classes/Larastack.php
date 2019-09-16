@@ -41,11 +41,11 @@ class Larastack
 
     /**
      * Test to see if Paystack has not returned any errors
-     * @param $body
+     * @param array $body
      * @return
      * @throws LarastackPaystackException
      */
-    private function testResponseBody($body)
+    private function testResponseBody(array $body)
     {
 
         if ( empty($body) ) {
@@ -53,13 +53,11 @@ class Larastack
              throw (new LarastackPaystackException());
         }
 
-        $bodyArray = json_decode($body, true);
-
-        if ( empty($bodyArray['status']) || !$bodyArray['status'] || empty($bodyArray['data'])) {
+        if ( empty($body['status']) || !$body['status'] || empty($body['data'])) {
 
              throw (new LarastackPaystackException());
         }
 
-        return $bodyArray['data'];
+        return $body['data'];
     }
 }

@@ -14,7 +14,7 @@ use Adesubomi\Larastack\Exception\LarastackTransportException;
 trait PaystackTransfer
 {
 
-    public function checkBalance()
+    public function getBalance()
     {
         try {
 
@@ -22,25 +22,16 @@ trait PaystackTransfer
                 'headers' => $this->authorization
             ]);
 
-            $responseBody = $response->getBody();
+            $responseBody = json_decode($response->getBody(), true);
 
             $this->testResponseBody($responseBody);
-                return json_decode($responseBody, true)['data'];
+            return $responseBody['data'];
 
         }
         catch (\Exception $exception) {
 
-            return $exception->getMessage();
+            throw (new LarastackTransportException($exception->getMessage()));
         }
-    }
-
-    /**
-     * Alias for checkBalance()
-     * @return string
-     */
-    public function getBalance()
-    {
-        return $this->checkBalance();
     }
 
     /**
@@ -56,9 +47,9 @@ trait PaystackTransfer
                 'headers' => $this->authorization
             ]);
 
-            $responseBody = $response->getBody();
+            $responseBody = json_decode($response->getBody(), true);
             $this->testResponseBody($responseBody);
-                return json_decode($responseBody, true)['data'];
+            return $responseBody['data'];
         }
         catch (\Exception $exception) {
 
@@ -80,9 +71,9 @@ trait PaystackTransfer
                 'headers' => $this->authorization
             ]);
 
-            $responseBody = $response->getBody();
+            $responseBody = json_decode($response->getBody(), true);
             $this->testResponseBody($responseBody);
-                return json_decode($responseBody, true)['data'];
+            return $responseBody['data'];
 
         }
         catch (\Exception $exception) {

@@ -21,6 +21,9 @@ explanatory naming. The naming comes as you think it.
 <strong>Verify or resolve BVN</strong><br />
 `$larastack->resolveBvn(string $bvn);`
 
+<strong>Initialize a transaction</strong>
+`$larastack->initializeTransaction($email, $amount, <array $meta>, <$callback_url>)`
+
 <strong>Verify a transaction</strong><br />
 `$larastack->verifyTransaction(string $reference);`
 
