@@ -20,7 +20,7 @@ trait PaystackMiscellaneous
      * @return mixed
      * @throws LarastackTransportException
      */
-    public function resolveAccountNumber($accountNumber, string $bankCode)
+    public function resolveAccountNumber(string $accountNumber, string $bankCode)
     {
 
         try {
