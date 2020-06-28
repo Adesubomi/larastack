@@ -6,7 +6,7 @@
  * Time: 1:12 AM
  */
 
-namespace Adesubomi\Larastack\Classes;
+namespace Adesubomi\Larastack\Traits;
 
 
 trait PaystackKeys

@@ -8,10 +8,10 @@
 
 namespace Adesubomi\Larastack\Provider;
 
-use Adesubomi\Larastack\Classes\Larastack;
-use Illuminate\Support\ServiceProvider;
+use Adesubomi\Larastack\Larastack;
+use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
-class LarastackServiceProvider extends ServiceProvider
+class LarastackServiceProvider extends LaravelServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -23,6 +23,11 @@ class LarastackServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/larastack.php' => config_path('larastack.php')
         ]);
+
+        $this->app->singleton(
+            Larastack::class,
+            new Larastack()
+        );
     }
 
     /**

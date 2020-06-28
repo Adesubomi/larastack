@@ -6,10 +6,10 @@
  * Time: 1:20 AM
  */
 
-namespace Adesubomi\Larastack\Classes;
+namespace Adesubomi\Larastack\Traits;
 
 
-trait PaystackPaymentPages
+trait PaystackBulk
 {
 
 }

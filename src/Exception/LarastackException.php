@@ -8,9 +8,6 @@
 
 namespace Adesubomi\Larastack\Exception;
 
-
-use Throwable;
-
 class LarastackException extends \Exception
 {
     public $errors;

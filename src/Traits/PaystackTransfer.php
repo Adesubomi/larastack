@@ -3,59 +3,56 @@
  * Created by PhpStorm.
  * User: Adesubomi
  * Date: 2/20/18
- * Time: 1:20 AM
+ * Time: 1:10 AM
  */
 
-namespace Adesubomi\Larastack\Classes;
+namespace Adesubomi\Larastack\Traits;
 
 
 use Adesubomi\Larastack\Exception\LarastackTransportException;
 
-trait PaystackMiscellaneous
+trait PaystackTransfer
 {
 
-    /**
-     * @param $accountNumber
-     * @param string $bankCode
-     * @return mixed
-     * @throws LarastackTransportException
-     */
-    public function resolveAccountNumber(string $accountNumber, string $bankCode)
+    public function checkBalance()
     {
-
         try {
-            $response = $this->client->request('GET', 'https://api.paystack.co/bank/resolve', [
-                'headers' => $this->authorization,
-                'query' => [
-                    'account_number' => $accountNumber,
-                    'bank_code' => $bankCode,
-                ]
+
+            $response = $this->client->get("https://api.paystack.co/balance", [
+                'headers' => $this->headers
             ]);
 
-
             $responseBody = json_decode($response->getBody(), true);
+
             $this->testResponseBody($responseBody);
             return $responseBody['data'];
+
         }
         catch (\Exception $exception) {
 
             throw (new LarastackTransportException($exception->getMessage()));
         }
-
     }
 
     /**
-     * Resolves and returns BVN information
-     * @param string $bvn
+     * Alias of checkBalance
+     */
+    public function getBalance()
+    {
+        return $this->checkBalance();
+    }
+
+    /**
+     * Gets a list of transfers made from this account
      * @return mixed
      * @throws LarastackTransportException
      */
-    public function resolveBvn(string $bvn)
+    public function listTransfers()
     {
-
         try {
-            $response = $this->client->request('GET', "https://api.paystack.co/bank/resolve_bvn/". $bvn, [
-                'headers' => $this->authorization
+
+            $response = $this->client->get("https://api.paystack.co/transfer", [
+                'headers' => $this->headers
             ]);
 
             $responseBody = json_decode($response->getBody(), true);
@@ -69,17 +66,17 @@ trait PaystackMiscellaneous
     }
 
     /**
-     * Gets a list of all commercial banks on Paystack platform.
-     * This is assumed to be all commercial banks operational in Nigeria.
-     * @return string
+     * Fetches and returns a particular transfer using transfer_code
+     * @param string $transfer_code
+     * @return mixed
      * @throws LarastackTransportException
      */
-    public function listBanks()
+    public function fetchTransfer(string $transfer_code)
     {
         try {
 
-            $response = $this->client->request('GET', "https://api.paystack.co/bank", [
-                'headers' => $this->authorization
+            $response = $this->client->get("https://api.paystack.co/transfer/". $transfer_code, [
+                'headers' => $this->headers
             ]);
 
             $responseBody = json_decode($response->getBody(), true);

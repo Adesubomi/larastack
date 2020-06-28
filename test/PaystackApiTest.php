@@ -6,7 +6,7 @@
  * Time: 1:29 AM
  */
 
-use Adesubomi\Larastack\Classes\Larastack;
+use Adesubomi\Larastack\Traits\Larastack;
 use PhpUnit\Framework\TestCase;
 
 class PaystackApiTest extends TestCase

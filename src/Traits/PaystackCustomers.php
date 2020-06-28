@@ -5,12 +5,11 @@
  * Date: 2/20/18
  * Time: 1:19 AM
  */
-
-namespace Adesubomi\Larastack\Classes;
-
+namespace Adesubomi\Larastack\Traits;
 
 use Adesubomi\Larastack\Exception\LarastackException;
 use Adesubomi\Larastack\Exception\LarastackTransportException;
+use Adesubomi\Larastack\Classes\PaystackApi;
 
 trait PaystackCustomers
 {
@@ -24,8 +23,9 @@ trait PaystackCustomers
     {
         try {
 
-            $response = $this->client->request('GET', "https://api.paystack.co/customer", [
-                'headers' => $this->authorization
+            $endpoint = PaystackApi::url('customer');
+            $response = $this->client->get($endpoint, [
+                'headers' => $this->headers
             ]);
 
             $responseBody = json_decode($response->getBody(), true);
